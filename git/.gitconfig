@@ -1,0 +1,9 @@
+[user]
+	name = Johan
+	email = johanstore2002@gmail.com
+
+[core]
+	sshCommand = ssh -v
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
