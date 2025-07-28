@@ -1,6 +1,16 @@
 [user]
 	name = Johan
 	email = johanstore2002@gmail.com
+	signingkey = ~/.ssh/id_ed25519
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = ssh
+
+[ssh]
+	signingkey = ~/.ssh/id_ed25519
 
 [core]
 	sshCommand = ssh -v
