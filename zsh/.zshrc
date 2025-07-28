@@ -13,7 +13,7 @@ fi
 [[ -z $PS1 ]] && return
 
 # Set the default editor
-export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="/home/johans/.local/share/pnpm"
