@@ -1,7 +1,7 @@
 [user]
 	name = Johan
 	email = johanstore2002@gmail.com
-	signingkey = ~/.ssh/id_ed25519
+	signingkey = ~/.ssh/id_ed25519_signing
 
 [commit]
 	gpgsign = true
@@ -10,7 +10,7 @@
 	format = ssh
 
 [ssh]
-	signingkey = ~/.ssh/id_ed25519
+	signingkey = ~/.ssh/id_ed25519_signing
 
 [gpg "ssh"]
 	allowedSignersFile = ~/.ssh/allowed_signers
