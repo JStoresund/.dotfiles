@@ -2,10 +2,11 @@
 
 set -e # Exit in case of error
 
-echo "🛠️  Setting up dotfile symlinks..."
+echo "🛠️ Setting up dotfile symlinks..."
 
 # Create config folders if they do not exist
 mkdir -p ~/.config
+mkdir -p ~/.ssh
 
 # Full directories
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
@@ -20,6 +21,7 @@ ln -sf ~/.dotfiles/zsh/.p10k ~/.config/zsh/.p10k
 # Individual files
 ln -sf ~/.dotfiles/zsh/.zshenv ~/.zshenv
 ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
+ln -sf ~/.dotfiles/git/allowed_signers ~/.ssh/allowed_signers
 
 echo "🎉 Dotfiles setup complete!"
 
