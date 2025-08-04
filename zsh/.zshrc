@@ -29,14 +29,14 @@ export NVM_DIR="$HOME/.nvm"
 
 # Only start ssh-agent if not already running
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval "$(ssh-agent -s)"
+  eval "$(ssh-agent -s | sed '/^echo Agent pid/d')"
 fi
 
 # Export the agent socket if not already set
 export SSH_AUTH_SOCK=$(find /tmp -type s -name agent.\* 2>/dev/null | head -n 1)
 
 # Add the key if it's not already added
-ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
+ssh-add >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 
 # Load Powerlevel10k theme
 source "$ZDOTDIR/.p10k/powerlevel10k.zsh-theme"
