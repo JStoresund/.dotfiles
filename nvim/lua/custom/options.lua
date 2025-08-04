@@ -31,7 +31,9 @@ vim.cmd [[
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 
--- REMEMBER: install xclip if unnamedplus does not work
+-- REMEMBER: install library in order to make unnamedplus work
+--  x11: xclip
+--  wayland: wl-clipboard (sudo apt install wl-clipboard)
 -- https://linuxconfig.org/how-to-use-xclip-on-linux ('gx' to open in browser)
 vim.opt.clipboard = 'unnamedplus'
 
