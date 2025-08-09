@@ -38,3 +38,5 @@ vim.keymap.set('n', '<leader>ei', '<cmd>:edit ~/.config/nvim/init.lua<CR>', { de
 vim.keymap.set('n', '<leader>tf', '<cmd>:NvimTreeToggle<CR>', { desc = '[T]oggle [F]ile tree' })
 
 vim.api.nvim_set_keymap('n', '<leader>Tas', ':ASToggle<CR>', { desc = '[T]oggle [A]uto[S]ave' })
+
+vim.keymap.set('n', '-', "<CMD>Oil<CR>", { desc = 'Open parent dir in Oil' })
