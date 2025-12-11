@@ -39,4 +39,6 @@ vim.keymap.set('n', '<leader>tf', '<cmd>:NvimTreeToggle<CR>', { desc = '[T]oggle
 
 vim.api.nvim_set_keymap('n', '<leader>Tas', ':ASToggle<CR>', { desc = '[T]oggle [A]uto[S]ave' })
 
-vim.keymap.set('n', '-', "<CMD>Oil<CR>", { desc = 'Open parent dir in Oil' })
+vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent dir in Oil' })
+
+vim.keymap.set('n', '<leader>tp', '<cmd>MarkdownPreviewToggle<CR>', { desc = '[T]oggle Markdown [P]review' })

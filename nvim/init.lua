@@ -15,8 +15,8 @@ NOTE: Some useful tips and commands in case you are stuck
 --]]
 
 -- Add ~/.config/nvim/lua to Lua's package.path
-local config_path = vim.fn.stdpath("config") .. "/lua/?.lua"
-package.path = package.path .. ";" .. config_path
+local config_path = vim.fn.stdpath 'config' .. '/lua/?.lua'
+package.path = package.path .. ';' .. config_path
 
 -- Must happen before any plugins are loaded
 vim.g.mapleader = ' '
@@ -24,7 +24,6 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-
 
 -- [[ Setting options ]]
 require 'custom.options'

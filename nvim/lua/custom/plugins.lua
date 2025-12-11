@@ -230,10 +230,10 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
+        python = { 'isort', 'black' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -448,6 +448,23 @@ return {
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local lspconfig = require 'lspconfig'
+      lspconfig.emmet_language_server.setup {
+        -- optional: tweak filetypes
+        filetypes = {
+          'html',
+          'css',
+          'javascript',
+          'typescript',
+          'javascriptreact',
+          'typescriptreact',
+          'vue',
+          'less',
+          'sass',
+          'scss',
+          'pug',
+        },
+      }
       local servers = {
         clangd = {},
         -- gopls = {},
@@ -701,31 +718,30 @@ return {
 
   -- NOTE: Following are Johan's added plugins
 
-  -- {
-  --   'iamcco/markdown-preview.nvim',
-  --   cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-  --   ft = { 'markdown' },
-  --   build = function()
-  --     vim.fn['mkdp#util#install']()
-  --   end,
-  --   config = function()
-  --     vim.g.mkdp_auto_start = 0
-  --     vim.g.mkdp_auto_close = 1
-  --     vim.g.mkdp_refresh_slow = 0
-  --     vim.g.mkdp_open_to_the_world = 1
-  --     vim.g.mkdp_open_ip = ''
-  --     vim.g.mkdp_port = ''
-  --     vim.g.mkdp_browser = 'firefox'
-  --     vim.g.mkdp_echo_preview_url = 1
-  --     vim.g.mkdp_browserfunc = ''
-  --     vim.g.mkdp_page_title = '${name} preview'
-  --     vim.g.mkdp_filetypes = { 'markdown' }
-  --     vim.g.mkdp_theme = 'dark'
-  --     vim.g.mkdp_combine_preview = 0
-  --     vim.g.mkdp_combine_preview_auto_refresh = 1
-  --   end,
-  -- },
-  --
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
+    ft = { 'markdown' },
+    config = function()
+      vim.g.mkdp_auto_start = 0
+      vim.g.mkdp_auto_close = 1
+      vim.g.mkdp_refresh_slow = 0
+      vim.g.mkdp_open_to_the_world = 1
+      vim.g.mkdp_open_ip = ''
+      vim.g.mkdp_port = ''
+      vim.g.mkdp_browser = 'firefox'
+      vim.g.mkdp_echo_preview_url = 1
+      vim.g.mkdp_browserfunc = ''
+      vim.g.mkdp_page_title = '${name} preview'
+      vim.g.mkdp_filetypes = { 'markdown' }
+      vim.g.mkdp_theme = 'dark'
+      vim.g.mkdp_combine_preview = 0
+      vim.g.mkdp_combine_preview_auto_refresh = 1
+    end,
+  },
 
   {
     'cpea2506/one_monokai.nvim',
@@ -748,29 +764,23 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context',
     event = 'BufReadPost',
-    config = function()
-      require('treesitter-context').setup {
-        enable = true,
-        max_lines = 0,
-        min_window_height = 0,
-        trim_scope = 'outer',
-        mode = 'cursor',
-        zindex = 20,
-        multiline_threshold = 20,
-        line_numbers = false,
-      }
-    end,
+    opts = {
+      enable = true,
+      max_lines = 0,
+      min_window_height = 0,
+      trim_scope = 'outer',
+      mode = 'cursor',
+      zindex = 20,
+      multiline_threshold = 20,
+      line_numbers = false,
+    },
   },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('lualine').setup {
-        opts = {
-          theme = 'one_monokai',
-        },
-      }
-    end,
+    opts = {
+      theme = 'one_monokai',
+    },
   },
 
   {
@@ -806,5 +816,30 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'VeryLazy',
+    opts = {},
+  },
+
+  {
+    'pocco81/auto-save.nvim',
+    opts = {},
+  },
+
+  {
+    'olrtg/nvim-emmet',
+    ft = { 'html', 'css', 'javascriptreact', 'typescriptreact' },
+    config = function()
+      -- Example: wrap selection with an Emmet abbreviation
+      vim.keymap.set({ 'n', 'v' }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+    end,
+  },
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
   },
 }
