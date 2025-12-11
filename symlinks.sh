@@ -23,6 +23,14 @@ ln -sf ~/.dotfiles/zsh/.zshenv ~/.zshenv
 ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/git/allowed_signers ~/.ssh/allowed_signers
 
-echo "🎉 Dotfiles setup complete!"
+echo "Dotfiles setup complete!\n"
+
+echo "Installing znap"
+
+git clone https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/.znap
+
+echo "Finished installing znap"
+
+echo "🎉 Setup complete! Please restart the terminal"
 
 # Run chmod +x ~/.dotfiles/symlinks.sh to make this script executable
