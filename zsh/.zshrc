@@ -26,6 +26,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
+# Julia
+export PATH="$HOME/.juliaup/bin:$PATH"
+
 # Start ssh-agent only if needed
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   eval "$(ssh-agent -s | sed '/^echo Agent pid/d')"

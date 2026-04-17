@@ -12,6 +12,7 @@ return {
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettier" },
         jsonc = { "prettier" },
+        julia = { "juliaformatter" },
         yaml = { "prettier" },
         markdown = { "prettier" },
       },

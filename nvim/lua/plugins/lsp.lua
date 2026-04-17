@@ -3,9 +3,11 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        julials = {
+          cmd = { "julia", "--startup-file=no", "--history-file=no", "-e", "using LanguageServer; runserver()" },
+        },
         pyright = {},
         rust_analyzer = {},
-        tsserver = {},
         omnisharp = {},
         clangd = {},
         lua_ls = {
