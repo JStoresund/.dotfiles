@@ -10,6 +10,9 @@ return {
         rust_analyzer = {},
         omnisharp = {},
         clangd = {},
+        jdtls = {
+          filetypes = { "java", "javacc" },
+        },
         lua_ls = {
           settings = {
             Lua = {
