@@ -1,7 +1,7 @@
 [user]
 	name = Johan
 	email = johanstore2002@gmail.com
-	signingkey = /home/johan/.ssh/id_ed25519_signing.pub
+	signingkey = ~/.ssh/id_ed25519_signing.pub
 
 [core]
 	sshCommand = ssh -v

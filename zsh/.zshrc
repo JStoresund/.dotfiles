@@ -40,7 +40,7 @@ ssh-add >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 # === ZNAP (plugin manager) ====================================================
 
 # Load Znap
-source ~/.znap/znap.zsh
+source ~/.config/zsh/.znap/znap.zsh
 
 # Example plugins (you can add/remove freely)
 znap source zsh-users/zsh-autosuggestions
