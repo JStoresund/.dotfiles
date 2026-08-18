@@ -29,13 +29,8 @@ export NVM_DIR="$HOME/.nvm"
 # Julia
 export PATH="$HOME/.juliaup/bin:$PATH"
 
-# Start ssh-agent only if needed
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval "$(ssh-agent -s | sed '/^echo Agent pid/d')"
-fi
-
-export SSH_AUTH_SOCK=$(find /tmp -type s -name agent.\* 2>/dev/null | head -n 1)
-ssh-add >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
+# SSH agent
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # === ZNAP (plugin manager) ====================================================
 
